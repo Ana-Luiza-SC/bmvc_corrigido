@@ -30,14 +30,16 @@ class Application():
     def portal(self):
         return template('app/views/html/portal')
     
-    def pagina(self,username):
-        if self.is_authenticated(username):
-            session_id = self.get_session_id()
-            user = self.__model.getCurrentUser(session_id)
-            return template('app/views/html/pagina', tranfered = True, current_user = user)
-        else:
-            return template('app/views/html/pagina', transfered = False)
-    
+    def pagina(self,username=None):
+            if self.is_authenticated(username):
+                session_id= self.get_session_id()
+                user = self.__model.getCurrentUser(session_id)
+                return template('app/views/html/pagina', \
+                transfered=True, current_user=user)
+            else:
+                return template('app/views/html/pagina', \
+                transfered=False)
+        
     
     def is_authenticated(self,username):
         session_id = self.get_session_id()
