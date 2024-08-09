@@ -31,7 +31,10 @@ class Application():
         return template('app/views/html/portal')
     
     def pagina(self,username=None):
-            if self.is_authenticated(username):
+            if username is None:
+                return template('app/views/html/pagina', \
+                transfered=False)
+            elif self.is_authenticated(username):
                 session_id= self.get_session_id()
                 user = self.__model.getCurrentUser(session_id)
                 return template('app/views/html/pagina', \
@@ -42,6 +45,7 @@ class Application():
         
     
     def is_authenticated(self,username):
+
         session_id = self.get_session_id()
         current_username = self.__model.getUserName(session_id)
         return username == current_username
@@ -50,7 +54,7 @@ class Application():
         session_id = self.__model.checkUser(username,password)
         if session_id:
             self.logout_user()
-            self.__current_username = self.__model.getUserName(session_id)
+            self.current_username = self.__model.getUserName(session_id)
             return session_id,username
         return None  
     
