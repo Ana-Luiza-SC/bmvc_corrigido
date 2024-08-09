@@ -10,6 +10,9 @@
 
     <h1>Minha página com interação de modelos :)</h1>
 
+            <h2>Dados do Usuário:</h2>
+            <p>Username: {{current_user.username}} </p>
+            <p>Password:  {{current_user.password}}</p>
 
 
 </body>
