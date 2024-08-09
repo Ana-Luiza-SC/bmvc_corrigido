@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h1>Minha página com interação de modelos :)</h1>
+    <h1>Minha página com interação de modelos :</h1>
 
     % if transfered:
         <div>
@@ -16,7 +16,7 @@
             <p>Password: {{current_user.password}} </p>
         </div>
     % else:
-        <h2>Porém, desta vez não foram transferidas quaisquer informações ): </h2>
+        <h2>Porém, desta vez não foram transferidas quaisquer informações : </h2>
     % end
 
 </body>
